@@ -30,8 +30,11 @@ func makeRequest(req *http.Request) ([]byte, error) {
 	}
 	monobankErr := new(Error)
 	err = json.Unmarshal(result, monobankErr)
-	if err == nil {
+	if err == nil && monobankErr.ErrorDescription != "" {
 		return nil, fmt.Errorf("while requesting Monobank: %q", monobankErr.ErrorDescription)
+	}
+	if err != nil {
+		return nil, err
 	}
 	return result, nil
 }
