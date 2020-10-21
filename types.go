@@ -37,6 +37,7 @@ type StatementItem struct {
 	ID              string `json:"id"`
 	Time            int32  `json:"time"`
 	Description     string `json:"description"`
+	Comment         *string `json:"comment"`
 	Mcc             int32  `json:"mcc"`
 	Hold            bool   `json:"hold"`
 	Amount          int64  `json:"amount"`
