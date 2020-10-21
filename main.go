@@ -33,9 +33,6 @@ func makeRequest(req *http.Request) ([]byte, error) {
 	if err == nil && monobankErr.ErrorDescription != "" {
 		return nil, fmt.Errorf("while requesting Monobank: %q", monobankErr.ErrorDescription)
 	}
-	if err != nil {
-		return nil, err
-	}
 	return result, nil
 }
 
